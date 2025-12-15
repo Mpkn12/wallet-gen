@@ -17,7 +17,7 @@ Write-Host "  - never share your mnemonic phrase"
 Write-Host "  - don't store wallet files on cloud services"
 Write-Host "  - use on a secure, offline computer for production wallets"
 Write-Host ""
-Read-Host "press enter to continue..." < /dev/tty
+Read-Host "press enter to continue..."
 Write-Host ""
 Write-Host "=== octra wallet generator installer ==="
 Write-Host ""
