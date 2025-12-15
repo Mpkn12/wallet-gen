@@ -88,11 +88,13 @@ bun run build
 $executableName = "wallet-generator"
 $executablePath = Join-Path $TempDir $executableName
 
-if (-not (Test-Path -Path $executablePath)) {
-    Write-Host "❌ error: wallet-generator executable not found after build!"
-    Write-Host "build may have failed. please check the build output above."
-    exit 1
+$exe = if ($IsWindows) { "wallet-generator.exe" } else { "wallet-generator" }
+
+if (-Not (Test-Path $exe)) {
+  Write-Error "$exe executable not found after build!"
+  exit 1
 }
+
 
 Write-Host "installing to $InstallDir..."
 New-Item -ItemType Directory -Force -Path $InstallDir | Out-Null
